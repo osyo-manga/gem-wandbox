@@ -35,10 +35,13 @@ module Wandbox module CLI
 			save  = options[:save]  || false
 			result = Wandbox.run compiler, code, { codes: codes, stdin: stdin, save: save }
 
+			progfile = "prog#{File.extname filename}"
+			p result
+
 			if save
 				puts result["url"]
 			else
-				puts result.fetch("compiler_message", result["program_message"])
+				puts result.fetch("compiler_message", result["program_message"] || "").gsub /#{progfile}/, filename
 			end
 			status = result["status"].to_i
 			if status != 0
