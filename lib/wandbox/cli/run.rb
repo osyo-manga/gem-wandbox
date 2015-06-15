@@ -4,6 +4,7 @@ require "wandbox"
 
 module Wandbox module CLI
 	class Run < Thor::Group
+
 		argument :filenames, type: :array
 
 		class_option :language, type: :string,  desc: "Programming language."
@@ -38,6 +39,10 @@ module Wandbox module CLI
 				puts result["url"]
 			else
 				puts result.fetch("compiler_message", result["program_message"])
+			end
+			status = result["status"].to_i
+			if status != 0
+				exit status
 			end
 		end
 	end
