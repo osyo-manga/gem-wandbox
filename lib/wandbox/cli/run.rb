@@ -36,7 +36,6 @@ module Wandbox module CLI
 			result = Wandbox.run compiler, code, { codes: codes, stdin: stdin, save: save }
 
 			progfile = "prog#{File.extname filename}"
-			p result
 
 			if save
 				puts result["url"]
