@@ -1,0 +1,7 @@
+#!/usr/bin/env ruby
+
+require "wandbox/cli"
+
+Wandbox::CLI.start(ARGV)
+
+
