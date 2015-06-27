@@ -5,12 +5,12 @@ require "wandbox"
 
 module Wandbox module CLI
 	class List < Thor::Group
-		class_option :language, type: :string, desc: "Output [LANGUAGE] compilers."
+		class_option :lang, type: :string, desc: "Output [LANGUAGE] compilers."
 
 		def list
 			list = Wandbox.list
-			if options[:language]
-				list = list.select_by_language options[:language]
+			if options[:lang]
+				list = list.select_by_language options[:lang]
 			end
 			puts "Compiler list:"
 			list.each {|it|
