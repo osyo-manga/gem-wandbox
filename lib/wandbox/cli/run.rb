@@ -49,10 +49,9 @@ module Wandbox module CLI
 
 			if param[:save]
 				puts result["url"]
-			else
-				puts result if options[:debug]
-				puts "#{result["compiler_message"]}#{result["program_message"]}"
 			end
+			puts result if options[:debug]
+			puts "#{result["compiler_message"]}#{result["program_message"]}"
 			status = result["status"].to_i
 			if status != 0
 				exit status
