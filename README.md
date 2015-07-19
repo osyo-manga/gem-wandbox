@@ -23,7 +23,81 @@ Or install it yourself as:
 ## Usage
 
 ```shell
-$ wandbox run {file}
+$ cat test.rb
+5.times.each { |n|
+	puts n
+}
+$ wandbox run test.rb
+0
+1
+2
+3
+4
+```
+
+#### Using Boost in C++
+
+Using `--options` option.
+
+```shell
+$ cat test.cpp
+#include <boost/config.hpp>
+#include <iostream>
+
+int
+main(){
+	std::cout << BOOST_COMPILER << std::endl;
+	return 0;
+}
+$ wandbox run test.cpp --options="boost-1.58"
+GNU C++ version 6.0.0 20150711 (experimental)
+```
+
+#### Using Clang Compiler
+
+Using `--compiler` option.
+
+```shell
+$ cat test.cpp
+#include <iostream>
+
+int
+main(){
+	std::cout << __VERSION__ << std::endl;
+	return 0;
+}
+$ wandbox run test.cpp --options="boost-1.58"
+4.2.1 Compatible Clang 3.7.0 (trunk 241983)
+```
+
+#### Output compiler list
+
+Using `compiler-list` in sub command.
+
+```shell
+$ wandbox compiler-list
+Compiler list:
+  gcc-head
+  gcc-5.1.0
+  gcc-4.9.2
+  gcc-4.9.1
+  gcc-4.9.0
+  gcc-4.8.2
+  gcc-4.8.1
+  gcc-4.7.3
+  gcc-4.6.4
+  gcc-4.5.4
+  gcc-4.4.7
+  gcc-4.3.6
+  clang-head
+  clang-3.6
+  clang-3.5
+  clang-3.4
+  clang-3.3
+  clang-3.2
+  clang-3.1
+  clang-3.0
+...
 ```
 
 ## Development

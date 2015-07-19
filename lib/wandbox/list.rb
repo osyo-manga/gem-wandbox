@@ -1,5 +1,6 @@
 # -*- encoding: UTF-8 -*-
 require "iolite"
+require_relative "./compiler"
 
 module Wandbox
 	class List
@@ -23,8 +24,16 @@ module Wandbox
 			select &arg1["language"].downcase == lang
 		end
 
+		def find_compiler compiler
+			find &arg1["name"] == compiler
+		end
+
+		def empty?
+			@list.empty?
+		end
+
 		def to_ary
-			@data
+			@list
 		end
 	end
 end

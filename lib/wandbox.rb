@@ -3,6 +3,7 @@ require "wandbox/version"
 require "wandbox/list"
 require "wandbox/web"
 require "wandbox/converter"
+require "wandbox/compiler"
 
 module Wandbox
 	def list

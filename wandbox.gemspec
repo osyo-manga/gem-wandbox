@@ -13,8 +13,8 @@ Gem::Specification.new do |spec|
     spec.metadata['allowed_push_host'] = "TODO: Set to 'http://mygemserver.com' to prevent pushes to rubygems.org, or delete to allow pushes to any server."
   end
 
-  spec.summary       = %q{benri}
-  spec.description   = %q{benri}
+  spec.summary       = %q{Wandbox(http://melpon.org/wandbox/) in CLI.}
+  spec.description   = %q{Wandbox(http://melpon.org/wandbox/) in CLI.}
   spec.homepage      = "TODO: Put your gem's website or public repo URL here."
   spec.license       = "MIT"
 
