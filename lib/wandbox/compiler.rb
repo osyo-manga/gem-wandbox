@@ -6,6 +6,7 @@ require_relative "./list"
 module Wandbox
 	class Compiler < Hash
 		include Iolite::Placeholders
+		include Iolite::Adaptor::ToLazy
 
 		def initialize data
 			data.each { |key, value| self[key] = value }
@@ -26,11 +27,17 @@ module Wandbox
 			options + self["switches"].select(&arg1["type"] == "select").map(&arg1["options"]).flatten
 		end
 
-		def to_s
-			options = options()
-			options.reject! &arg1["display-flags"].empty?
-			options.sort_by! &arg1["name"]
-			width = options.max_by(&arg1["name"].length)["name"].length
+		def find_option_by_name name
+			options.find &arg1["name"] == name
+		end
+
+		def to_stdio enable_options=[]
+			opts = options
+			opts.reject! &arg1["display-flags"].empty?
+			opts.sort_by! &arg1["name"]
+			width = opts.max_by(&arg1["name"].length)["name"].length
+			
+			enable_options_s = enable_options.map(&to_l.find_option_by_name(arg1)).compact.map(&arg1["display-flags"]).join " "
 <<"EOS"
 Compiler:
   #{self["display-name"]}
@@ -42,12 +49,12 @@ Version:
   #{self["version"]}
 
 Compiler command:
-  $ #{self["display-compile-command"]}
+  $ #{self["display-compile-command"]}#{ " " + enable_options_s unless enable_options_s.empty?}
 
 Option list:
 #{
 			" #{"name".ljust width + 1} : added extra option"
-			options.map { |it|
+			opts.map { |it|
 				"  #{it["name"].ljust width + 1} : #{it["display-flags"]}"
 			}.join "\n"
 }
