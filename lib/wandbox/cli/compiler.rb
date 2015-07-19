@@ -6,7 +6,7 @@ require "wandbox"
 module Wandbox module CLI
 	class Compiler < Thor::Group
 		argument     :compiler, type: :string, desc: "COMPILER"
-		class_option :options,  type: :string, desc: "Enable options. e.g. "
+		class_option :options,  type: :string, desc: "Using options."
 
 		def execute
 			name = compiler
