@@ -100,6 +100,53 @@ Compiler list:
 ...
 ```
 
+#### Output compiler options
+
+```shell
+$ wandbox compiler gcc-head --options="warning,c++11"
+Compiler:
+  gcc HEAD
+
+language:
+  C++
+
+Version:
+  6.0.0 20150718 (experimental)
+
+Compiler command:
+  $ g++ prog.cc -Wall -Wextra -std=c++11
+
+Option list:
+  boost-1.47           : -I/usr/local/boost-1.47.0/include
+  boost-1.48           : -I/usr/local/boost-1.48.0/include
+  boost-1.49           : -I/usr/local/boost-1.49.0/include
+  boost-1.50           : -I/usr/local/boost-1.50.0/include
+  boost-1.51           : -I/usr/local/boost-1.51.0/include
+  boost-1.52           : -I/usr/local/boost-1.52.0/include
+  boost-1.53           : -I/usr/local/boost-1.53.0/include
+  boost-1.54           : -I/usr/local/boost-1.54.0/include
+  boost-1.55           : -I/usr/local/boost-1.55.0/include
+  boost-1.56           : -I/usr/local/boost-1.56.0/include
+  boost-1.57           : -I/usr/local/boost-1.57.0/include
+  boost-1.58           : -I/usr/local/boost-1.58.0/include
+  c++11                : -std=c++11
+  c++14                : -std=c++14
+  c++1z                : -std=c++1z
+  c++98                : -std=c++98
+  cpp-pedantic         : -pedantic
+  cpp-pedantic-errors  : -pedantic-errors
+  cpp-verbose          : -v
+  gnu++11              : -std=gnu++11
+  gnu++14              : -std=gnu++14
+  gnu++1z              : -std=gnu++1z
+  gnu++98              : -std=gnu++98
+  optimize             : -O2 -march=native
+  sprout               : -I/usr/local/sprout
+  warning              : -Wall -Wextra
+```
+
+
+
 ## Development
 
 After checking out the repo, run `bin/setup` to install dependencies. Then, run `bin/console` for an interactive prompt that will allow you to experiment. Run `bundle exec wandbox` to use the code located in this directory, ignoring other installed copies of this gem.
