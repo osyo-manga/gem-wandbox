@@ -129,19 +129,19 @@ Compiler list:
 
 ```shell
 $ wandbox compiler gcc-head --options="warning,c++11"
-Compiler:
+[Compiler]:
   gcc HEAD
 
-language:
+[Language]:
   C++
 
-Version:
+[Version]:
   6.0.0 20150718 (experimental)
 
-Compiler command:
+[Compiler command]:
   $ g++ prog.cc -Wall -Wextra -std=c++11
 
-Option list:
+[Option list]:
   boost-1.47           : -I/usr/local/boost-1.47.0/include
   boost-1.48           : -I/usr/local/boost-1.48.0/include
   boost-1.49           : -I/usr/local/boost-1.49.0/include

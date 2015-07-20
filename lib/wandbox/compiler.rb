@@ -39,22 +39,22 @@ module Wandbox
 			
 			enable_options_s = enable_options.map(&to_l.find_option_by_name(arg1)).compact.map(&arg1["display-flags"]).join " "
 <<"EOS"
-Compiler:
+[Compiler]:
   #{self["display-name"]}
 
-language:
+[Language]:
   #{self["language"]}
 
-Version:
+[Version]:
   #{self["version"]}
 
-Compiler command:
+[Compiler command]:
   $ #{self["display-compile-command"]}#{ " " + enable_options_s unless enable_options_s.empty?}
 #{
 unless opts.empty?
 <<"EOS"
 
-Option list:
+[Option list]:
   #{"Option name".ljust width + 1} : Added extra option
 #{
 			opts.map { |it|
