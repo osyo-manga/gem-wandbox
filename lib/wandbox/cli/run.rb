@@ -7,11 +7,11 @@ module Wandbox module CLI
 
 		argument :filenames, type: :array
 
-		class_option :lang,     type: :string, desc: "Programming language. e.g) --lang=C++"
-		class_option :compiler, type: :string, desc: "Run compiler. e.g) --compiler=clang-head"
-		class_option :stdin,    type: :string, desc: "Output wandbox permanent link."
-		class_option :options,  type: :string, desc: "Wandbox options."
-		class_option :save,     type: :boolean, desc: "Stdin value."
+		class_option :lang,     type: :string, desc: "Programming language. e.g.) --lang=C++"
+		class_option :compiler, type: :string, desc: "Run compiler. e.g.) --compiler=clang-head"
+		class_option :stdin,    type: :string, desc: "Stdin value."
+		class_option :options,  type: :string, desc: "Wandbox options. e.g.) --options=warning,c++11"
+		class_option :save,     type: :boolean, desc: "Output wandbox permanent link."
 		class_option :"post-parameter", type: :hash,  desc: "POST parameter."
 		class_option :debug,    type: :boolean, desc: ""
 
