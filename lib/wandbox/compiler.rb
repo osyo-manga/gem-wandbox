@@ -52,8 +52,8 @@ Compiler command:
   $ #{self["display-compile-command"]}#{ " " + enable_options_s unless enable_options_s.empty?}
 
 Option list:
+  #{"Option name".ljust width + 1} : Added extra option
 #{
-			" #{"name".ljust width + 1} : added extra option"
 			opts.map { |it|
 				"  #{it["name"].ljust width + 1} : #{it["display-flags"]}"
 			}.join "\n"
