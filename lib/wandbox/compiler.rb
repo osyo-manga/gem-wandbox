@@ -52,7 +52,7 @@ Compiler command:
   $ #{self["display-compile-command"]}#{ " " + enable_options_s unless enable_options_s.empty?}
 #{
 unless opts.empty?
-<<"EOS2"
+<<"EOS"
 
 Option list:
   #{"Option name".ljust width + 1} : Added extra option
@@ -61,7 +61,7 @@ Option list:
 				"  #{it["name"].ljust width + 1} : #{it["display-flags"]}"
 			}.join "\n"
 }
-EOS2
+EOS
 end
 }
 EOS
