@@ -64,7 +64,7 @@ main(){
 	std::cout << __VERSION__ << std::endl;
 	return 0;
 }
-$ wandbox run test.cpp --options="boost-1.58"
+$ wandbox run test.cpp --compiler=clang-head
 4.2.1 Compatible Clang 3.7.0 (trunk 241983)
 ```
 
