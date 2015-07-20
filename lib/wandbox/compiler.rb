@@ -35,7 +35,7 @@ module Wandbox
 			opts = options
 			opts.reject! &arg1["display-flags"].empty?
 			opts.sort_by! &arg1["name"]
-			width = opts.max_by(&arg1["name"].length)["name"].length
+			width = (opts.max_by(&arg1["name"].length) || { "name" => "" })["name"].length
 			
 			enable_options_s = enable_options.map(&to_l.find_option_by_name(arg1)).compact.map(&arg1["display-flags"]).join " "
 <<"EOS"
@@ -50,6 +50,9 @@ Version:
 
 Compiler command:
   $ #{self["display-compile-command"]}#{ " " + enable_options_s unless enable_options_s.empty?}
+#{
+unless opts.empty?
+<<"EOS2"
 
 Option list:
   #{"Option name".ljust width + 1} : Added extra option
@@ -57,6 +60,9 @@ Option list:
 			opts.map { |it|
 				"  #{it["name"].ljust width + 1} : #{it["display-flags"]}"
 			}.join "\n"
+}
+EOS2
+end
 }
 EOS
 		end
