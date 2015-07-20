@@ -9,13 +9,9 @@ Gem::Specification.new do |spec|
   spec.authors       = ["manga_osyo"]
   spec.email         = ["manga.osyo@gmail.com"]
 
-  if spec.respond_to?(:metadata)
-    spec.metadata['allowed_push_host'] = "TODO: Set to 'http://mygemserver.com' to prevent pushes to rubygems.org, or delete to allow pushes to any server."
-  end
-
   spec.summary       = %q{Wandbox(http://melpon.org/wandbox/) in CLI.}
   spec.description   = %q{Wandbox(http://melpon.org/wandbox/) in CLI.}
-  spec.homepage      = "TODO: Put your gem's website or public repo URL here."
+  spec.homepage      = "https://github.com/osyo-manga/gem-wandbox"
   spec.license       = "MIT"
 
   spec.files         = `git ls-files -z`.split("\x0").reject { |f| f.match(%r{^(test|spec|features)/}) }
