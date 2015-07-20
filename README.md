@@ -70,6 +70,33 @@ $ wandbox run test.cpp --options="boost-1.58"
 4.2.1 Compatible Clang 3.7.0 (trunk 241983)
 ```
 
+#### Run multiple source files.
+
+```shell
+$ cat prog.rb
+require_relative "./test"
+
+puts X.method
+$ cat test.rb
+module X
+	def self.method
+		"X.method"
+	end
+end
+$ wandbox run prog.rb test.rb
+X.method
+```
+
+#### Save source code in Wandbox
+
+Using `--save` option.
+
+```shell
+$ wandbox run prog.rb --save
+http://melpon.org/wandbox/permlink/rCVQCfbdmsqGXaO7
+hello world
+```
+
 #### Output compiler list
 
 Using `compiler-list` in sub command.
@@ -146,7 +173,6 @@ Option list:
 ```
 
 
-
 ## Development
 
 After checking out the repo, run `bin/setup` to install dependencies. Then, run `bin/console` for an interactive prompt that will allow you to experiment. Run `bundle exec wandbox` to use the code located in this directory, ignoring other installed copies of this gem.
@@ -160,3 +186,9 @@ To install this gem onto your local machine, run `bundle exec rake install`. To 
 3. Commit your changes (`git commit -am 'Add some feature'`)
 4. Push to the branch (`git push origin my-new-feature`)
 5. Create a new Pull Request
+
+## Release note
+
+* 0.1.0
+ * Release!!
+
