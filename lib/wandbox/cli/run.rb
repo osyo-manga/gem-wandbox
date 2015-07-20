@@ -32,7 +32,7 @@ module Wandbox module CLI
 
 			code = File.open(filename).read
 			param = {}
-			param[:code] = filenames_.map { |filename|
+			param[:codes] = filenames_.map { |filename|
 				{ "file" => filename, "code" => File.open(filename).read }
 			}
 			param[:stdin]  = options[:stdin] || ""
